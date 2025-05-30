@@ -1,0 +1,35 @@
+[package]
+name = "flux_protocol"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+scrypto = { version = "1.3.0" }
+scrypto_math = { git = "https://github.com/ociswap/scrypto-math", branch = "main", version = "0.7.0" }
+scrypto_avltree = { git = "https://github.com/ociswap/scrypto-avltree", version = "1.3.0" }
+
+[dev-dependencies]
+scrypto-test = { version = "1.3.0" }
+dummy_lsulp_component = { path = "./dummy_lsulp_component", features = ["test"] }
+dummy_oracle_component = { path = "./dummy_oracle_component", features = ["test"] }
+oracle_component = { path = "./oracle_component", features = ["test"] }
+
+[profile.release]
+opt-level = 'z'        # Optimize for size.
+lto = true             # Enable Link Time Optimization.
+codegen-units = 1      # Reduce number of codegen units to increase optimizations.
+panic = 'abort'        # Abort on panic.
+strip = true           # Strip the symbols.
+overflow-checks = true # Panic in the case of an overflow.
+
+[features]
+default = []
+test = []
+
+[lib]
+crate-type = ["cdylib", "lib"]
+doc = false
+
+[workspace]
+# Set the package crate as its own empty workspace, to hide it from any potential ancestor workspace
+# Remove this [workspace] section if you intend the package to be part of a Cargo workspace
