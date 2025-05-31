@@ -1162,7 +1162,9 @@ mod proxy {
 
             if let Ok(Some(mut claimed_entities)) = self.dapp_def_account.get_metadata::<&str, Vec<GlobalAddress>>("claimed_entities") {
                 claimed_entities.push(GlobalAddress::from(pool_unit_resource_address));
-                let _ = self.dapp_def_account.set_metadata("claimed_entities", claimed_entities);
+                self.badge_vault.authorize_with_amount(dec!("0.75"), || {
+                    let _ = self.dapp_def_account.set_metadata("claimed_entities", claimed_entities);
+                });
             }
         }
     }
