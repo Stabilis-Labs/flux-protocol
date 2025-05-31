@@ -43,8 +43,8 @@ mod oracle {
     }
 
     extern_blueprint! {
-        //"package_rdx1pkfrtmv980h85c9nvhxa7c9y0z4vxzt25c3gdzywz5l52g5t0hdeey", //mainnet lsu pool
-        "package_tdx_2_1ph6p4hk03a6p8f9mqzsfs9595jug6gmv2gxteggjtep3wv52t8g2ds",
+        "package_rdx1pkfrtmv980h85c9nvhxa7c9y0z4vxzt25c3gdzywz5l52g5t0hdeey", //mainnet lsu pool
+        //"package_tdx_2_1ph6p4hk03a6p8f9mqzsfs9595jug6gmv2gxteggjtep3wv52t8g2ds",
         LsuPool {
             fn get_dex_valuation_xrd(&self) -> Decimal;
             fn get_liquidity_token_total_supply(&self) -> Decimal;
