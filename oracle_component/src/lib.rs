@@ -26,14 +26,14 @@ mod oracle {
 
     const LSU_POOL: Global<LsuPool> = global_component!(
         LsuPool,
-        //"component_rdx1cppy08xgra5tv5melsjtj79c0ngvrlmzl8hhs7vwtzknp9xxs63mfp" //mainnet
-        "component_tdx_2_1cpdf8dsfslstthlvaa75kp652epw3pjn967dmf9kqhhzlger60mdn5" //stokenet dummy lsupool
+        "component_rdx1cppy08xgra5tv5melsjtj79c0ngvrlmzl8hhs7vwtzknp9xxs63mfp" //mainnet
+        //"component_tdx_2_1cpdf8dsfslstthlvaa75kp652epw3pjn967dmf9kqhhzlger60mdn5" //stokenet dummy lsupool
     );
 
     extern_blueprint! {
         //"package_sim1pkgxxxxxxxxxpackgexxxxxxxxx000726633226xxxxxxxxxlk8hc9", //simulator package, uncomment to run tests
-        "package_tdx_2_1phrthm8neequrhdg8jxvvwd8xazccuaa8u3ufyemysade0ckv88an2", //stokenet morpher package
-        //"package_rdx1p5xvvessslnpnfam9weyzldlxr7q06gen2t3d3waa0x760g7jwxhkd", //mainnet morpher package
+        //"package_tdx_2_1phrthm8neequrhdg8jxvvwd8xazccuaa8u3ufyemysade0ckv88an2", //stokenet morpher package
+        "package_rdx1p5xvvessslnpnfam9weyzldlxr7q06gen2t3d3waa0x760g7jwxhkd", //mainnet morpher package
         MorpherOracle {
             fn check_price_input(&self, message: String, signature: String) -> PriceMessage;
         }
@@ -89,9 +89,9 @@ mod oracle {
             .prepare_to_globalize(owner_role)
             .metadata(metadata! {
                 init {
-                    "name" => "Ersatz Oracle".to_string(), updatable;
-                    "description" => "An oracle used to keep track of collateral prices for Ersatz".to_string(), updatable;
-                    "info_url" => Url::of("https://ilikeitstable.com"), updatable;
+                    "name" => "Flux Oracle".to_string(), updatable;
+                    "description" => "An oracle used to keep track of collateral prices for Flux".to_string(), updatable;
+                    "info_url" => Url::of("https://flux.ilikeitstable.com"), updatable;
                     "dapp_definition" => dapp_def_address, updatable;
                 }
             })
